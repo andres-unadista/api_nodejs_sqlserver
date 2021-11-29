@@ -1,17 +1,18 @@
 import sql from 'mssql';
+import config from '../config';
 
 const settings = {
-  user: 'admin',
-  password: 'admin123',
-  server: 'localhost',
-  database: 'webadmin',
+  user: config.dbUser,
+  password: config.dbPassword,
+  server: config.dbServer,
+  database: config.dbName,
   options: {
     encrypt: true, // for azure
     trustServerCertificate: true, // change to true for local dev / self-signed certs
   },
 };
 
-async function getConnection() {
+export async function getConnection() {
   try {
     const pool = await sql.connect(settings);
     return pool;
@@ -20,4 +21,5 @@ async function getConnection() {
   }
 }
 
-getConnection();
+export {sql};
+

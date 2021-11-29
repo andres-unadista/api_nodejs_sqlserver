@@ -1,0 +1,33 @@
+@api = http://localhost:3001/products
+
+### CONSULTAR TODOS
+GET {{api}}
+
+### GUARDAR
+POST {{api}}
+Content-Type: application/json
+
+{
+  "name": "Lapices",
+  "description": "Madera reciclada",
+  "quantity": 22
+}
+
+### CONSULTA ÚNICA
+GET {{api}}/1004
+
+### Eliminar
+DELETE  {{api}}/1005
+
+### Número de registros
+GET  {{api}}/count
+
+### Actualizar
+PUT  {{api}}/1004
+Content-Type: application/json
+
+{
+  "name": "Papel",
+  "description": "Papel seda",
+  "quantity": 99
+}
